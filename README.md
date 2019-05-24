@@ -4,6 +4,23 @@
 
 实现通过kafka连接elk日志系统，将Python程序中的日志信息发送到ELK平台。
 
+### 安装
+
+$ pip install python-elk-kafka
+
+### 使用
+
+通过 logging.conf/config_dict.py 配置相关日志信息
+
+配置信息示例位置：
+
+config_example/logging.conf or config_example/config_dict.py
+
+### 项目维护地址
+
+https://github.com/kep-w/python-elk-kafka
+
+
 #### 关于ELK, 一个集中式日志系统：(Elasticsearch , Logstash, Kibana)
 
 Elasticsearch是个开源分布式搜索引擎，提供搜集、分析、存储数据三大功能。
