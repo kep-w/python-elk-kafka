@@ -1,46 +1,50 @@
-## python-elk-kafka
+# python-elk-kafka
 
-此模块针对Python3.5 及以上版本
+This python package is developed for Python 3.5 and above 
 
-实现通过kafka连接elk日志系统，将Python程序中的日志信息发送到ELK平台。
+The purpose is to connect the ELK log system through the kafka message queue, and send the python log information to the ELK platform.
 
-### 安装
+### Installing
 
-$ pip install python-elk-kafka
+`$ pip install python-elk-kafka`
 
-### 使用
+### How to use
 
-通过 logging.conf/config_dict.py 配置相关日志信息
+Configure logger information via **logging.conf** / **config_dict.py**
 
-配置信息示例位置：
+The location of the exsample configuration：
 
 config_example/logging.conf or config_example/config_dict.py
 
-### 项目维护地址
 
-https://github.com/kep-w/python-elk-kafka
+#### About ELK, a centralized logging system：(Elasticsearch , Logstash, Kibana)
 
+Elasticsearch is an open source distributed search engine that provides three functions of **collecting**, **analyzing** and **storing** data.
 
-#### 关于ELK, 一个集中式日志系统：(Elasticsearch , Logstash, Kibana)
+Logstash mainly used as a tool for **collecting**, **analyzing**, and **filtering** logs.
 
-Elasticsearch是个开源分布式搜索引擎，提供搜集、分析、存储数据三大功能。
+Kibana is a log-analytical **web** interface for Logstash and ElasticSearch that helps **aggregate**, **analyze**, and **search** for important data logs
 
-Logstash 主要是用来日志的搜集、分析、过滤日志的工具，支持大量的数据获取方式。
-
-Kibana 为 Logstash 和 ElasticSearch 提供的日志分析友好的 Web 界面，可以帮助汇总、分析和搜索重要数据日志
-
-#### 从Python到EKL使用架构：
+### Python client to EKL service：
 
 ![Image text](imgs/ELK.png)
 
-通过消息队列机制：
+Message queuing mechanism：
 
-1.Logstash Agent先将日志传递给Kafka
+1. Logstash Agent passing the logs to Kafka;
 
-2.kafka将队列中消息或数据传递给Logstash
+2. Kafka sending the messages in the queue to the specified server where the Logstash is installed;
 
-3.Logstash过滤、分析后将数据传递给Elasticsearch存储
+3. After filtering and analyzing, the data will pass to the Elasticsearch;
 
-4.最后由Kibana将日志和数据呈现给用户
+4. Finally, Kibana presenting the logs and data to the users.
 
-优势： 引入了Kafka,所以即使远端Logstash server因故障停止运行，数据将会先被存储下来，从而避免数据丢失。
+
+### Why choose kafka:
+
+The Kafka message queue was uesd, so even if the remote Logstash server stops running due to a failure, the data will be stored first, thus avoiding data loss.
+
+
+### Project maintenance in this github
+
+_if there have any questions, you can issue or pull request here_
